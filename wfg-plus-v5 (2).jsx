@@ -226,156 +226,42 @@ function WFGv5(){
   // ═══ SPLASH ═══
   // ═══ BOAR MASCOT — static ═══
   const WC=()=>(
-    <svg width="220" height="240" viewBox="0 0 220 240" className="wc-static">
-      {/* Spotlight/backdrop glow */}
-      <defs>
-        <radialGradient id="glow" cx="50%" cy="50%" r="50%">
-          <stop offset="0%" stopColor="#FFF9E6" stopOpacity="0.6"/>
-          <stop offset="100%" stopColor="#FFF9E6" stopOpacity="0"/>
-        </radialGradient>
-      </defs>
-      <ellipse cx="110" cy="125" rx="95" ry="105" fill="url(#glow)"/>
+    <svg width="180" height="200" viewBox="0 0 180 200" style={{marginBottom:8}}>
+      {/* Ground line */}
+      <path d="M20,175 Q90,172 160,175" stroke={C.text} strokeWidth="2" fill="none" strokeLinecap="round" opacity="0.4"/>
+      {/* Tiny grass tufts */}
+      <path d="M30,172 L30,167 M35,173 L35,169" stroke={C.acc} strokeWidth="1.5" fill="none" strokeLinecap="round"/>
+      <path d="M145,172 L145,167 M150,173 L150,169" stroke={C.acc} strokeWidth="1.5" fill="none" strokeLinecap="round"/>
 
-      {/* Pine trees in background */}
-      <g opacity="0.85">
-        {/* Left tree */}
-        <g transform="translate(30,155)">
-          <path d="M0,0 L-12,-18 L-6,-18 L-15,-32 L-7,-32 L-18,-50 L-5,-50 L0,-58 L5,-50 L18,-50 L7,-32 L15,-32 L6,-18 L12,-18 Z" fill="#4A7C3A" stroke="#1C1C1E" strokeWidth="2"/>
-          <rect x="-3" y="-2" width="6" height="10" fill="#5C3D1F" stroke="#1C1C1E" strokeWidth="1.5"/>
-        </g>
-        {/* Right tree */}
-        <g transform="translate(190,160)">
-          <path d="M0,0 L-10,-15 L-5,-15 L-13,-28 L-6,-28 L-15,-42 L-4,-42 L0,-50 L4,-42 L15,-42 L6,-28 L13,-28 L5,-15 L10,-15 Z" fill="#4A7C3A" stroke="#1C1C1E" strokeWidth="2"/>
-          <rect x="-2.5" y="-2" width="5" height="8" fill="#5C3D1F" stroke="#1C1C1E" strokeWidth="1.5"/>
-        </g>
-        {/* Small tree far back */}
-        <g transform="translate(170,170)">
-          <path d="M0,0 L-7,-10 L-4,-10 L-9,-20 L-4,-20 L-10,-30 L-3,-30 L0,-36 L3,-30 L10,-30 L4,-20 L9,-20 L4,-10 L7,-10 Z" fill="#3D6B2E" stroke="#1C1C1E" strokeWidth="1.8"/>
+      {/* Simple sketch walker */}
+      <g transform="translate(90,95)" stroke={C.text} strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" fill="none">
+        {/* Head */}
+        <circle cx="0" cy="-50" r="18" fill={C.card}/>
+        {/* Smile */}
+        <path d="M-6,-46 Q0,-41 6,-46"/>
+        {/* Eyes — dots */}
+        <circle cx="-6" cy="-54" r="1.5" fill={C.text} stroke="none"/>
+        <circle cx="6" cy="-54" r="1.5" fill={C.text} stroke="none"/>
+        {/* Body */}
+        <path d="M0,-32 L0,15"/>
+        {/* Arms — one forward swinging, one back */}
+        <path d="M0,-20 L-18,-5"/>
+        <path d="M0,-20 L16,-8"/>
+        {/* Legs — mid-stride */}
+        <path d="M0,15 L-14,48"/>
+        <path d="M0,15 L16,45"/>
+        {/* Leaf accent — held up */}
+        <g transform="translate(16,-8) rotate(20)" stroke={C.acc} fill={C.gP} strokeWidth="2">
+          <path d="M0,0 Q6,-6 12,0 Q6,6 0,0 Z"/>
+          <path d="M0,0 L12,0" strokeWidth="1.2"/>
         </g>
       </g>
 
-      {/* Decorative crosses and sparkles around */}
-      <g fill="#F4C07A" opacity="0.9">
-        <g transform="translate(35,55)"><rect x="-4" y="-1" width="8" height="2" rx="1"/><rect x="-1" y="-4" width="2" height="8" rx="1"/></g>
-        <g transform="translate(185,50)"><rect x="-4" y="-1" width="8" height="2" rx="1"/><rect x="-1" y="-4" width="2" height="8" rx="1"/></g>
-        <g transform="translate(55,35)"><rect x="-3" y="-0.8" width="6" height="1.6" rx="0.8"/><rect x="-0.8" y="-3" width="1.6" height="6" rx="0.8"/></g>
-      </g>
-      <g fill="#8DB255" opacity="0.9">
-        <g transform="translate(165,75)"><rect x="-3.5" y="-1" width="7" height="2" rx="1"/><rect x="-1" y="-3.5" width="2" height="7" rx="1"/></g>
-      </g>
-      <circle cx="50" cy="95" r="2" fill="#FFFFFF" opacity="0.9"/>
-      <circle cx="175" cy="105" r="2.5" fill="#FFFFFF" opacity="0.8"/>
-      <circle cx="40" cy="130" r="1.5" fill="#FFFFFF" opacity="0.7"/>
-
-      {/* Ground shadow under boar */}
-      <ellipse cx="110" cy="215" rx="55" ry="4" fill="#1C1C1E" opacity="0.15"/>
-
-      {/* ═══ BOAR ═══ */}
-      <g transform="translate(110,140)">
-
-        {/* Backpack (behind body) */}
-        <g>
-          {/* Right strap visible going over shoulder */}
-          <path d="M-15,-40 Q-25,-25 -35,5" stroke="#7BB8DC" strokeWidth="7" fill="none" strokeLinecap="round"/>
-          <path d="M-15,-40 Q-25,-25 -35,5" stroke="#1C1C1E" strokeWidth="9" fill="none" strokeLinecap="round" opacity="0.3" transform="translate(-0.5,0.5)"/>
-          {/* Main pack body */}
-          <path d="M-52,-18 Q-55,-22 -52,-26 L-34,-30 Q-28,-28 -28,-22 L-28,30 Q-28,38 -36,38 L-48,38 Q-54,36 -54,28 Z" fill="#8EBAD8" stroke="#1C1C1E" strokeWidth="2.5"/>
-          {/* Pack front pocket */}
-          <path d="M-48,-8 L-34,-10 Q-32,-8 -32,-4 L-32,18 Q-32,22 -36,22 L-46,22 Q-50,22 -50,18 Z" fill="#A8CFE8" stroke="#1C1C1E" strokeWidth="2"/>
-          {/* Zipper line */}
-          <path d="M-48,4 L-33,2" stroke="#1C1C1E" strokeWidth="1.2" strokeDasharray="2 1.5"/>
-          {/* Pocket clasp */}
-          <rect x="-42" y="8" width="4" height="4" rx="1" fill="#1C1C1E"/>
-          {/* Left strap tuft */}
-          <ellipse cx="-30" cy="-28" rx="5" ry="3" fill="#8EBAD8" stroke="#1C1C1E" strokeWidth="2"/>
-        </g>
-
-        {/* Back legs */}
-        <g>
-          {/* Left back leg */}
-          <path d="M-18,35 Q-22,40 -22,52 Q-22,60 -14,60 Q-8,60 -8,52 L-8,38 Z" fill="#8B5A33" stroke="#1C1C1E" strokeWidth="2.5"/>
-          {/* Right back leg */}
-          <path d="M8,38 L8,52 Q8,60 16,60 Q22,60 22,52 Q22,42 18,36 Z" fill="#8B5A33" stroke="#1C1C1E" strokeWidth="2.5"/>
-          {/* Hooves - toe split */}
-          <path d="M-15,60 L-15,63 M-11,60 L-11,63" stroke="#1C1C1E" strokeWidth="1.5"/>
-          <path d="M13,60 L13,63 M17,60 L17,63" stroke="#1C1C1E" strokeWidth="1.5"/>
-        </g>
-
-        {/* Body (chubby rounded) */}
-        <path d="M-35,-20 Q-40,-38 -18,-42 Q0,-46 22,-42 Q42,-38 42,-15 Q42,10 38,28 Q30,42 12,44 Q-8,44 -28,42 Q-40,38 -40,18 Q-42,-5 -35,-20 Z"
-              fill="#9B6B3F" stroke="#1C1C1E" strokeWidth="3"/>
-
-        {/* Belly lighter patch */}
-        <ellipse cx="5" cy="20" rx="20" ry="15" fill="#B8895F" opacity="0.6"/>
-
-        {/* Front leg/hoof peek */}
-        <g>
-          <ellipse cx="-8" cy="42" rx="6" ry="4" fill="#8B5A33" stroke="#1C1C1E" strokeWidth="2"/>
-          <path d="M-10,45 L-10,47 M-6,45 L-6,47" stroke="#1C1C1E" strokeWidth="1.2"/>
-        </g>
-
-        {/* Front paw/hand holding strap */}
-        <g transform="translate(-30,5)">
-          <ellipse cx="0" cy="0" rx="7" ry="5" fill="#8B5A33" stroke="#1C1C1E" strokeWidth="2.2"/>
-          <path d="M-3,3 L-3,5 M0,3 L0,5 M3,3 L3,5" stroke="#1C1C1E" strokeWidth="1"/>
-        </g>
-
-        {/* ═══ HEAD ═══ */}
-        <g transform="translate(8,-50)">
-
-          {/* Left ear (farther back) */}
-          <g>
-            <path d="M-26,-8 Q-34,-28 -22,-30 Q-12,-26 -14,-12 Z" fill="#8B5A33" stroke="#1C1C1E" strokeWidth="2.8"/>
-            <path d="M-24,-12 Q-28,-22 -22,-24 Q-17,-21 -18,-14 Z" fill="#D4A87C"/>
-          </g>
-
-          {/* Right ear (front) */}
-          <g>
-            <path d="M22,-15 Q28,-34 16,-32 Q6,-28 10,-14 Z" fill="#8B5A33" stroke="#1C1C1E" strokeWidth="2.8"/>
-            <path d="M20,-18 Q22,-28 16,-27 Q12,-24 14,-17 Z" fill="#D4A87C"/>
-          </g>
-
-          {/* Head main (rounded) */}
-          <path d="M-28,-5 Q-32,-20 -15,-24 Q5,-28 22,-22 Q32,-12 30,5 Q30,20 18,26 Q0,30 -14,26 Q-28,18 -30,5 Z"
-                fill="#9B6B3F" stroke="#1C1C1E" strokeWidth="3"/>
-
-          {/* Headband */}
-          <path d="M-25,-17 Q-5,-27 20,-20" stroke="#8DB255" strokeWidth="6" fill="none" strokeLinecap="round" stroke-linejoin="round"/>
-          <path d="M-25,-17 Q-5,-27 20,-20" stroke="#1C1C1E" strokeWidth="7.5" fill="none" strokeLinecap="round" opacity="0.15" transform="translate(0,0.5)"/>
-          {/* Headband gem */}
-          <circle cx="-8" cy="-24" r="3.5" fill="#C8E6A0" stroke="#1C1C1E" strokeWidth="1.8"/>
-
-          {/* Cheek blush */}
-          <ellipse cx="-18" cy="10" rx="6" ry="3.5" fill="#E8748C" opacity="0.7"/>
-
-          {/* Snout (protruding to the right) */}
-          <path d="M8,0 Q28,-2 32,10 Q30,20 18,22 Q4,22 2,12 Z" fill="#B8895F" stroke="#1C1C1E" strokeWidth="2.8"/>
-
-          {/* Snout top highlight */}
-          <ellipse cx="20" cy="5" rx="8" ry="3" fill="#D4A87C" opacity="0.6"/>
-
-          {/* Nostrils */}
-          <ellipse cx="24" cy="10" rx="2" ry="3" fill="#1C1C1E"/>
-          <ellipse cx="15" cy="11" rx="2" ry="3" fill="#1C1C1E"/>
-
-          {/* Eyes */}
-          <ellipse cx="-8" cy="-2" rx="3" ry="3.5" fill="#1C1C1E"/>
-          <ellipse cx="5" cy="-4" rx="3" ry="3.5" fill="#1C1C1E"/>
-          {/* Eye highlights */}
-          <circle cx="-7" cy="-3.5" r="1" fill="#FFFFFF"/>
-          <circle cx="6" cy="-5.5" r="1" fill="#FFFFFF"/>
-
-          {/* Mouth - open smile */}
-          <path d="M6,15 Q10,22 18,20 Q22,18 24,14" stroke="#1C1C1E" strokeWidth="2.2" fill="#8B3A3A" strokeLinecap="round" strokeLinejoin="round"/>
-          {/* Tongue */}
-          <ellipse cx="14" cy="18" rx="4" ry="1.8" fill="#E8748C"/>
-        </g>
-
-        {/* Small curly tail */}
-        <g>
-          <path d="M40,-2 Q50,-6 48,-14 Q46,-20 40,-18" stroke="#1C1C1E" strokeWidth="3.5" fill="none" strokeLinecap="round"/>
-          <path d="M40,-2 Q50,-6 48,-14 Q46,-20 40,-18" stroke="#9B6B3F" strokeWidth="2.2" fill="none" strokeLinecap="round"/>
-        </g>
+      {/* Motion lines behind */}
+      <g stroke={C.acc} strokeWidth="2" strokeLinecap="round" opacity="0.5">
+        <path d="M35,110 L50,110"/>
+        <path d="M30,125 L48,125"/>
+        <path d="M38,140 L52,140"/>
       </g>
     </svg>
   );
